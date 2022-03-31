@@ -1,0 +1,51 @@
+@import url('../../root.scss');
+
+.register {
+    width: 100vw;
+    height: 100vh;
+
+    &Wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .registerLeft,
+        .registerRight {
+            flex: 1;
+        }
+
+        .registerLeft {
+            display: grid;
+            place-items: center;
+
+            .registerLeftWrapper {
+                display: flex;
+                flex-direction: column;
+
+                & .title {
+                    font-size: 30px;
+                    font-weight: 900;
+                    color: var(--primary-text);
+                }
+
+                & .subTitle {
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: var(--primary-text);
+                }
+            }
+        }
+
+        .registerRight {
+            background-image: url('../../assets/img/background_login.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            .purdah {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}

@@ -1,0 +1,96 @@
+@import url('../../root.scss');
+
+.qnaPost {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 20px;
+    transition: transform 0.25s linear;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &Wrapper {
+        display: flex;
+        padding: 20px;
+
+        .qnaPostLeft {
+            display: flex;
+            align-items: center;
+            flex: 2;
+            border-right: 1px solid var(--primary-text);
+
+            &Info {
+                display: flex;
+
+                &Avatar {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    border: 1px solid var(--primary-purple);
+
+                    & img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                &Detail {
+                    display: flex;
+                    flex-direction: column;
+
+                    .username {
+                        font-size: 15px;
+                        font-weight: 700;
+                    }
+
+                    .sub {
+                        font-size: 10px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            &Description {
+                margin: 0 20px;
+            }
+        }
+    }
+
+    .qnaPostRight {
+        flex: 0.5;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 20px;
+        cursor: pointer;
+
+        &:hover .doubleArrowIcon,
+        &:hover .time {
+            color: var(--primary-purple);
+        }
+
+        &Top {
+            display: flex;
+            align-items: inherit;
+            & .time {
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--primary-text);
+                transition: color 0.25s linear;
+            }
+        }
+
+        &Bottom {
+            display: flex;
+            align-items: inherit;
+            .doubleArrowIcon {
+                color: var(--primary-text);
+                transition: color 0.25s linear;
+            }
+        }
+    }
+}

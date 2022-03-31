@@ -1,0 +1,50 @@
+@import url('../../root.scss');
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    .labelRegister {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--primary-text);
+    }
+
+    .inputRegister {
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px 0 10px;
+        border: 1px solid var(--primary-text);
+        &:focus {
+            outline-color: var(--primary-purple);
+        }
+    }
+
+    .submitButton {
+        padding: 15px;
+        border-radius: 5px;
+        border: none;
+        background-color: var(--primary-purple);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .navigateToLogin {
+        text-decoration: none;
+        font-size: 15px;
+        color: var(--primary-text);
+        text-align: center;
+        margin-top: 10px;
+
+        &:hover {
+            cursor: pointer;
+            color: var(--primary-purple);
+        }
+    }
+}

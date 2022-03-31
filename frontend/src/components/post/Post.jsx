@@ -1,0 +1,58 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './post.scss';
+import { MoreHoriz } from '@mui/icons-material';
+import logo from '../../assets/img/logo.png';
+
+const Post = ({ current }) => {
+    const [owner, setOwner] = useState({});
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const res = await axios.get(`/users/?userId=${current.userId}`);
+                setOwner(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, [current.userId]);
+
+    return (
+        <div className="post">
+            <div className="postWrapper">
+                <div className="postTop">
+                    <div className="postTopLeft">
+                        <div className="avatar">
+                            <img src={logo} alt="" />
+                        </div>
+                        <div className="postTopLeftInfo">
+                            <span className="username">{owner.username}</span>
+                            <span className="time">5m</span>
+                        </div>
+                    </div>
+                    <div className="postTopRight">
+                        <MoreHoriz
+                            sx={{ color: 'var(--primary-text)' }}
+                            fontSize="large"
+                            className="moreIcon"
+                        />
+                    </div>
+                </div>
+                <div className="postBody">
+                    {current.title && (
+                        <span className="postBodyCaption">{current.title}</span>
+                    )}
+                    {current.image && (
+                        <div className="postBodyImage">
+                            <img src={current.image} alt="" />
+                        </div>
+                    )}
+                </div>
+                <div className="postBottom"></div>
+            </div>
+        </div>
+    );
+};
+
+export default Post;

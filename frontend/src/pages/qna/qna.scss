@@ -1,0 +1,21 @@
+@import url('../../root.scss');
+
+.qna {
+    .bodyWrapper {
+        margin: 70px 24px 0;
+
+        &Sub {
+            display: flex;
+
+            .qnaLeft {
+                flex: 2;
+                margin-right: 20px;
+            }
+
+            .qnaRight {
+                flex: 1;
+                margin-left: 20px;
+            }
+        }
+    }
+}
