@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import './share.scss';
-import logo from '../../assets/img/logo.png';
 import { VideoCameraBack, Photo, TagFaces } from '@mui/icons-material';
 import FileBase64 from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +9,7 @@ import {
 } from '../../redux/features/feedPost/feedPostSlice';
 import { authSelector } from '../../redux/features/auth/authSlice';
 import { CircularProgress } from '@mui/material';
+import { DImages } from '../../default';
 
 const Share = () => {
     const dispatch = useDispatch();
@@ -40,7 +40,14 @@ const Share = () => {
                 <div className="shareTop">
                     <div className="shareTopLeft">
                         <div className="avatar">
-                            <img src={logo} alt="" />
+                            <img
+                                src={
+                                    user?.avatar
+                                        ? user.avatar
+                                        : DImages + 'user/defaultAvatar.png'
+                                }
+                                alt=""
+                            />
                         </div>
                         <span className="username">{user?.username}</span>
                     </div>

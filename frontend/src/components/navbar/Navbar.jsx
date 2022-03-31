@@ -10,8 +10,13 @@ import {
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import { Link } from 'react-router-dom';
+import { DImages } from '../../default';
+import { useSelector } from 'react-redux';
+import { authSelector } from '../../redux/features/auth/authSlice';
 
 const Navbar = () => {
+    const { user } = useSelector(authSelector);
+
     return (
         <AppBar position="fixed" sx={{ backgroundColor: '#fff' }}>
             <Container maxWidth="xl">
@@ -90,7 +95,14 @@ const Navbar = () => {
                             className="navbarRightItem"
                         />
                         <div className="navbarRightItem avatar">
-                            <img src={logo} alt="avatar" />
+                            <img
+                                src={
+                                    user?.avatar
+                                        ? user.avatar
+                                        : DImages + 'user/defaultAvatar.png'
+                                }
+                                alt="avatar"
+                            />
                             <div className="avatarContext">
                                 <div className="avatarContextWrapper">
                                     <ul className="avatarContextList">
@@ -101,7 +113,7 @@ const Navbar = () => {
                                                 }}
                                             />
                                             <Link
-                                                to="/profile"
+                                                to={`/profile/${user?.username}`}
                                                 className="itemName"
                                             >
                                                 Profile

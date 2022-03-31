@@ -1,8 +1,11 @@
 @import url('../../root.scss');
 
 .profile {
+    padding: 0 25px;
+    margin-top: 70px;
+
     &Wrapper {
         display: flex;
-        margin-top: 70px;
+        margin-top: 20px;
     }
 }

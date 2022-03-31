@@ -52,7 +52,7 @@
         height: 30px;
         width: 30px;
         border-radius: 50%;
-        border: 1px solid var(--primary-purple);
+        cursor: pointer;
 
         &:hover .avatarContext {
             display: block;

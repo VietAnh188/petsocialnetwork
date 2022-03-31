@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './post.scss';
 import { MoreHoriz } from '@mui/icons-material';
-import logo from '../../assets/img/logo.png';
+import { DImages } from '../../default';
+import { Link } from 'react-router-dom';
 
 const Post = ({ current }) => {
     const [owner, setOwner] = useState({});
@@ -24,7 +25,16 @@ const Post = ({ current }) => {
                 <div className="postTop">
                     <div className="postTopLeft">
                         <div className="avatar">
-                            <img src={logo} alt="" />
+                            <Link to={`/profile/${owner?.username}`}>
+                                <img
+                                    src={
+                                        owner?.avatar
+                                            ? owner.avatar
+                                            : DImages + 'user/defaultAvatar.png'
+                                    }
+                                    alt=""
+                                />
+                            </Link>
                         </div>
                         <div className="postTopLeftInfo">
                             <span className="username">{owner.username}</span>
