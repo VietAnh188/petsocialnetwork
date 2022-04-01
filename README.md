@@ -66,7 +66,7 @@ To get a local copy up and running follow these simple example steps.
     npm start
     ```
 
--   `Step 5`: Go to frontend file and run it:
+-   `Step 5`: Go to frontend folder and run it:
 
     ```sh
     yarn start
@@ -78,7 +78,7 @@ To get a local copy up and running follow these simple example steps.
     npm start
     ```
 
--   `Step 6`: View the website at Localhost:3000 at your browser
+-   `Step 6`: View the website at http://localhost:3000/ at your browser
 
 ### PAGE
 
