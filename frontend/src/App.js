@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { authSelector } from './redux/features/auth/authSlice';
 import { useEffect } from 'react';
 import Profile from './pages/profile/Profile';
+import SearchResult from './pages/searchResult/SearchResult';
 
 function App() {
     const { user } = useSelector(authSelector);
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/qna" element={<QNA />} />
                 <Route path="/profile/:username" element={<Profile />} />
+                <Route path="/search/:username" element={<SearchResult />} />
             </Routes>
         </div>
     );

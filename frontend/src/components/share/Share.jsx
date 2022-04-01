@@ -7,14 +7,12 @@ import {
     feedPostSelector,
     createFeedPostCall,
 } from '../../redux/features/feedPost/feedPostSlice';
-import { authSelector } from '../../redux/features/auth/authSlice';
 import { CircularProgress } from '@mui/material';
 import { DImages } from '../../default';
 
-const Share = () => {
+const Share = ({ user }) => {
     const dispatch = useDispatch();
     const { isFetching } = useSelector(feedPostSelector);
-    const { user } = useSelector(authSelector);
 
     const [image, setImage] = useState('');
 

@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './profile.scss';
 import Navbar from '../../components/navbar/Navbar';
 import Newfeed from '../../components/newfeed/Newfeed';
 import { useParams } from 'react-router-dom';
 import { Container } from '@mui/material';
 import HeadProfile from '../../components/headProfile/HeadProfile';
-import { useSelector } from 'react-redux';
-import { authSelector } from '../../redux/features/auth/authSlice';
+import InforBox from '../../components/InforBox/InforBox';
 
 const Profile = () => {
     const { username } = useParams();
 
-    const { user } = useSelector(authSelector);
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const res = await axios.get(`/users/?username=${username}`);
+                setUser(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, [username]);
 
     return (
         <>
@@ -20,9 +31,11 @@ const Profile = () => {
                 <div className="profile">
                     <HeadProfile user={user} />
                     <div className="profileWrapper">
-                        <span style={{ flex: 1 }}></span>
-                        <span style={{ flex: 1.5 }}>
-                            <Newfeed username={username} />
+                        <span style={{ flex: 1 }}>
+                            <InforBox user={user} />
+                        </span>
+                        <span style={{ flex: 1.5, margin: '0 20px' }}>
+                            <Newfeed other={user} />
                         </span>
                         <span style={{ flex: 1 }}></span>
                     </div>

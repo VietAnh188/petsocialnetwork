@@ -1,0 +1,39 @@
+@import url('../../root.scss');
+
+.inforBox {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.25s linear;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &Wrapper {
+        padding: 20px;
+
+        .inforBoxHeader {
+            & span {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--primary-text);
+            }
+        }
+
+        .inforBoxBody {
+            display: flex;
+            flex-direction: column;
+
+            .inforBoxBodyItem {
+                display: flex;
+                align-items: center;
+                margin: 5px 0;
+
+                & span {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

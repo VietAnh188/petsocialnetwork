@@ -11,7 +11,7 @@ const Home = () => {
                 <div className="bodyWrapper">
                     <span style={{ flex: '1' }}></span>
                     <span style={{ flex: '1.5' }}>
-                        <Newfeed />
+                        <Newfeed home />
                     </span>
                     <span style={{ flex: '1' }}></span>
                 </div>

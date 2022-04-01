@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './navbar.scss';
 import { AppBar, Button, Container, Toolbar } from '@mui/material';
 import {
@@ -9,13 +9,23 @@ import {
 } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DImages } from '../../default';
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../redux/features/auth/authSlice';
 
 const Navbar = () => {
     const { user } = useSelector(authSelector);
+
+    const navigate = useNavigate();
+
+    const searchUser = useRef('');
+
+    const handleSearch = event => {
+        if (event.key === 'Enter') {
+            navigate(`/search/${searchUser.current.value}`);
+        }
+    };
 
     return (
         <AppBar position="fixed" sx={{ backgroundColor: '#fff' }}>
@@ -78,7 +88,13 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="navbarMiddle">
-                        <input className="navbarMiddleSearch" type="text" />
+                        <input
+                            className="navbarMiddleSearch"
+                            type="text"
+                            onKeyDown={handleSearch}
+                            placeholder="search user"
+                            ref={searchUser}
+                        />
                         <Search
                             sx={{
                                 color: 'black',

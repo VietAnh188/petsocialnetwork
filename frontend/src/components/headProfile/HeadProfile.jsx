@@ -29,9 +29,9 @@ const HeadProfile = ({ user }) => {
                             className="avatar"
                         />
                         <div className="headProfileBottomLeftInfo">
-                            <span className="username">{user.username}</span>
+                            <span className="username">{user?.username}</span>
                             <span className="description">
-                                {user.description}
+                                {user?.description}
                             </span>
                         </div>
                     </div>

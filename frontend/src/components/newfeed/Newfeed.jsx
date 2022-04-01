@@ -9,22 +9,33 @@ import Post from '../post/Post';
 import Share from '../share/Share';
 import './newfeed.scss';
 
-const Newfeed = ({ username }) => {
+const Newfeed = ({ home, other }) => {
     const { user } = useSelector(authSelector);
     const { posts } = useSelector(feedPostSelector);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        user &&
+        if (home) {
             dispatch(
-                fetchFeedPostsCall({ userId: user._id, username: username })
+                fetchFeedPostsCall({
+                    userId: user._id,
+                    username: user.username,
+                })
             );
-    }, [dispatch]);
+        } else {
+            dispatch(
+                fetchFeedPostsCall({
+                    userId: other._id,
+                    username: other.username,
+                })
+            );
+        }
+    }, [other]);
 
     return (
         <div className="newfeed">
-            <Share />
+            <Share user={other || user} />
             <div className="postList">
                 {posts.map(post => (
                     <Post key={post._id} current={post} />

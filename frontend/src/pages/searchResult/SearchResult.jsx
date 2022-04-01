@@ -1,0 +1,44 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './searchResult.scss';
+import { Container } from '@mui/material';
+import SearchItem from '../../components/searchItem/SearchItem';
+import Navbar from '../../components/navbar/Navbar';
+import { useParams } from 'react-router-dom';
+
+const SearchResult = () => {
+    const { username } = useParams();
+    const [userList, setUserList] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const res = await axios.get(`/users/search/${username}`);
+                setUserList(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, []);
+
+    return (
+        <>
+            <Navbar />
+            <Container maxWidth="xl">
+                <div className="searchResult">
+                    <div className="searchResultWrapper">
+                        <span style={{ flex: 1 }}></span>
+                        <span style={{ flex: 1.5 }}>
+                            {userList.map(user => (
+                                <SearchItem key={user._id} user={user} />
+                            ))}
+                        </span>
+                        <span style={{ flex: 1 }}></span>
+                    </div>
+                </div>
+            </Container>
+        </>
+    );
+};
+
+export default SearchResult;

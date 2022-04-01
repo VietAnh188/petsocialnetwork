@@ -5,6 +5,11 @@
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-bottom: 20px;
+    transition: transform 0.25s linear;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 
     &Wrapper {
         padding: 20px;
