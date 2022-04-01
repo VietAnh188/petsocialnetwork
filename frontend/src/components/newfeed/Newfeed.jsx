@@ -17,19 +17,21 @@ const Newfeed = ({ home, other }) => {
 
     useEffect(() => {
         if (home) {
-            dispatch(
-                fetchFeedPostsCall({
-                    userId: user._id,
-                    username: user.username,
-                })
-            );
+            user &&
+                dispatch(
+                    fetchFeedPostsCall({
+                        userId: user?._id,
+                        // username: user.username,
+                    })
+                );
         } else {
-            dispatch(
-                fetchFeedPostsCall({
-                    userId: other._id,
-                    username: other.username,
-                })
-            );
+            other &&
+                dispatch(
+                    fetchFeedPostsCall({
+                        // userId: other._id,
+                        username: other?.username,
+                    })
+                );
         }
     }, [other]);
 

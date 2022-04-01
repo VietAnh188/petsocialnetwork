@@ -21,7 +21,9 @@ export const fetchFeedPostsCall = createAsyncThunk(
     async ({ userId, username }) => {
         const res = username
             ? await axios.get(`/feedPosts/profile/${username}`)
-            : await axios.get(`/feedPosts/feed/${userId}`);
+            : userId
+            ? await axios.get(`/feedPosts/feed/${userId}`)
+            : null;
         return res.data;
     }
 );

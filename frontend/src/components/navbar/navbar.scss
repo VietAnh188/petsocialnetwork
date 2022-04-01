@@ -70,7 +70,8 @@
             left: -100%;
             border-radius: 5px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            animation: mount 0.25s linear forwards;
+            animation: mountContext 0.25s linear forwards;
+            background-color: #fff;
 
             &::before {
                 content: '';
@@ -105,7 +106,7 @@
     }
 }
 
-@keyframes mount {
+@keyframes mountContext {
     0% {
         opacity: 0.1;
     }

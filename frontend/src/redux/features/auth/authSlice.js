@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-    user: null,
+    user: JSON.parse(localStorage.getItem('user')) || null,
     isFetching: false,
     isError: false,
     isSuccess: false,
@@ -10,6 +10,7 @@ const initialState = {
 
 export const loginCall = createAsyncThunk('auth/loginCall', async request => {
     const res = await axios.post('/auth/login', request);
+    localStorage.setItem('user', JSON.stringify(res.data));
     return res.data;
 });
 
@@ -36,7 +37,7 @@ const authSlice = createSlice({
             state.user = action.payload;
             state.isFetching = false;
             state.isError = false;
-            state.isSucess = true;
+            state.isSuccess = true;
         });
         builder.addCase(loginCall.rejected, state => {
             state.user = null;

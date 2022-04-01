@@ -11,11 +11,14 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { DImages } from '../../default';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { authSelector } from '../../redux/features/auth/authSlice';
+import { logoutClicked } from '../../redux/features/logout/logoutSlice';
 
 const Navbar = () => {
     const { user } = useSelector(authSelector);
+
+    const disapatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -25,6 +28,10 @@ const Navbar = () => {
         if (event.key === 'Enter') {
             navigate(`/search/${searchUser.current.value}`);
         }
+    };
+
+    const handleLogout = () => {
+        disapatch(logoutClicked());
     };
 
     return (
@@ -135,7 +142,10 @@ const Navbar = () => {
                                                 Profile
                                             </Link>
                                         </li>
-                                        <li className="avatarContextItem">
+                                        <li
+                                            className="avatarContextItem"
+                                            onClick={handleLogout}
+                                        >
                                             <Logout
                                                 sx={{
                                                     color: 'var(--primary-text)',

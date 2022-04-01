@@ -1,0 +1,78 @@
+@import url('../../root.scss');
+
+.logoutDialog {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    animation: mountLogoutDialog 0.5s linear forwards;
+    overflow: hidden;
+    background-color: #fff;
+
+    &Wrapper {
+        .logoutDialogTop,
+        .logoutDialogBottom {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .logoutDialogTop {
+            justify-content: center;
+            background-color: var(--primary-purple);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .logoutDialogBottom {
+            justify-content: space-evenly;
+
+            .btn {
+                padding: 5px 10px;
+                border: none;
+                font-weight: 700;
+                color: #fff;
+                border-radius: 5px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .yes {
+                background-color: var(--success-color);
+            }
+
+            .no {
+                background-color: var(--error-color);
+            }
+        }
+    }
+}
+
+@keyframes mountLogoutDialog {
+    0% {
+        opacity: 0;
+        top: 0;
+    }
+    25% {
+        opacity: 0.3;
+        top: 20px;
+    }
+    50% {
+        opacity: 0.6;
+        top: 40px;
+    }
+    75% {
+        opacity: 0.8;
+        top: 60px;
+    }
+    100% {
+        opacity: 1;
+        top: 80px;
+    }
+}
