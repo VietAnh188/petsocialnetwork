@@ -33,39 +33,56 @@ This is an example of how you may give instructions on setting up your project l
 To get a local copy up and running follow these simple example steps.
 
 -   `Step 1`: Clone the project from repository:
+
     ```sh
     git clone https://github.com/VietAnh188/petsocialnetwork.git
     ```
+
 -   `Step 2`: Using terminal go to project folder:
+
     ```sh
     cd 'Your Project Name'
     ```
+
 -   `Step 3`: Contact me to get .env file for backend:
+
     ```sh
     https://www.facebook.com/profile.php?id=100009701613657
     ```
+
     ```sh
     https://www.linkedin.com/in/viet-anh-le-033b29227/
     ```
+
 -   `Step 4`: After obtaining the .env file, copy it to the backend folder, the .env file must be at the same level as package.json. And run the backend:
+
     ```sh
     yarn start
     ```
+
     or
+
     ```sh
     npm start
     ```
+
 -   `Step 5`: Go to frontend file and run it:
+
     ```sh
     yarn start
     ```
+
     or
+
     ```sh
     npm start
     ```
+
 -   `Step 6`: View the website at Localhost:3000 at your browser
 
 <!-- MAIN CONCEPT -->
+
+### Page
 
 |  #  | Page         | Descriptiton                                                                                        |
 | :-: | :----------- | :-------------------------------------------------------------------------------------------------- |
