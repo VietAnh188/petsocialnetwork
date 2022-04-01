@@ -27,7 +27,7 @@ This section will list the main frameworks/libraries used in the project. Here a
 -   [cors](https://www.npmjs.com/package/cors)
 -   [multer](https://www.npmjs.com/package/multer)
 
-<!-- GETTING STARTED -->
+### GETTING STARTED
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
@@ -80,9 +80,7 @@ To get a local copy up and running follow these simple example steps.
 
 -   `Step 6`: View the website at Localhost:3000 at your browser
 
-<!-- MAIN CONCEPT -->
-
-### Page
+### PAGE
 
 |  #  | Page         | Descriptiton                                                                                        |
 | :-: | :----------- | :-------------------------------------------------------------------------------------------------- |
@@ -95,7 +93,7 @@ To get a local copy up and running follow these simple example steps.
 |  7  | Shop Page    | Sell pet and buy pet                                                                                |
 |  8  | Search Page  | This page will show all result when you search                                                      |
 
-### Routings
+### ROUTINGS
 
 -   `/`: Home page if you not login, application will navigate you to login page
 -   `/login`: Login page
