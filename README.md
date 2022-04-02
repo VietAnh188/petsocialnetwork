@@ -44,14 +44,10 @@ To get a local copy up and running follow these simple example steps.
     cd 'Your Project Name'
     ```
 
--   `Step 3`: Contact me to get .env file for backend:
+-   `Step 3`: Go to the link to get the .env file:
 
     ```sh
-    https://www.facebook.com/profile.php?id=100009701613657
-    ```
-
-    ```sh
-    https://www.linkedin.com/in/viet-anh-le-033b29227/
+    https://drive.google.com/drive/u/0/folders/1G0b8jmWYrE9fX1bGzxhnpZw3t_PB6j1I
     ```
 
 -   `Step 4`: After obtaining the .env file, copy it to the backend folder, the .env file must be at the same level as package.json. And run the backend:
