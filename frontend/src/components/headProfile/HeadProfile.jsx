@@ -19,10 +19,9 @@ const HeadProfile = ({ user }) => {
 
     useEffect(() => {
         setFollowed(currentUser.followings.includes(user._id));
-    }, [user._id]);
+    }, [user._id, currentUser.followings]);
 
-    const handleFollow = async event => {
-        event.preventDefault();
+    const handleFollow = async () => {
         try {
             if (followed) {
                 await axios.put(`/users/${user._id}/unfollow`, {

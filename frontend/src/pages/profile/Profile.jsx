@@ -22,7 +22,7 @@ const Profile = () => {
                 console.log(error);
             }
         })();
-    }, [username]);
+    }, [username, user]);
 
     return (
         <>

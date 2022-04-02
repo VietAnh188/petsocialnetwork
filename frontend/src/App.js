@@ -22,7 +22,7 @@ function App() {
         } else {
             navigate('/');
         }
-    }, [user]);
+    }, [user._id]);
 
     return (
         <>
