@@ -19,7 +19,7 @@ const SearchResult = () => {
                 console.log(error);
             }
         })();
-    }, []);
+    }, [username]);
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import './share.scss';
 import { VideoCameraBack, Photo, TagFaces } from '@mui/icons-material';
 import FileBase64 from 'react-file-base64';
@@ -9,10 +9,13 @@ import {
 } from '../../redux/features/feedPost/feedPostSlice';
 import { CircularProgress } from '@mui/material';
 import { DImages } from '../../default';
+import { RenderContext } from '../../context/renderContext/renderContext';
+import { loadedAction } from '../../context/renderContext/renderActions';
 
 const Share = ({ user }) => {
     const dispatch = useDispatch();
     const { isFetching } = useSelector(feedPostSelector);
+    const { dispatch: dispatchContext } = useContext(RenderContext);
 
     const [image, setImage] = useState('');
 
@@ -27,6 +30,7 @@ const Share = ({ user }) => {
                 image,
             };
             dispatch(createFeedPostCall(request));
+            dispatchContext(loadedAction());
         } else {
             alert('Missing title or image');
         }
