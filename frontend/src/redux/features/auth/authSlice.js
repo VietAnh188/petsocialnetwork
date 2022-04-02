@@ -25,6 +25,28 @@ export const registerCall = createAsyncThunk(
 const authSlice = createSlice({
     name: 'auth',
     initialState: initialState,
+    reducers: {
+        followUser: (state, action) => {
+            return (state = {
+                ...state,
+                user: {
+                    ...state.user,
+                    followings: [...state.user.followings, action.payload],
+                },
+            });
+        },
+        unfollowUser: (state, action) => {
+            return (state = {
+                ...state,
+                user: {
+                    ...state.user,
+                    followings: state.user.followings.filter(
+                        following => following !== action.payload
+                    ),
+                },
+            });
+        },
+    },
     extraReducers: builder => {
         // loginCall
         builder.addCase(loginCall.pending, state => {
@@ -63,6 +85,8 @@ const authSlice = createSlice({
         });
     },
 });
+
+export const { followUser, unfollowUser } = authSlice.actions;
 
 export const authSelector = state => state.auth;
 

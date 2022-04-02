@@ -75,7 +75,8 @@ router.get('/feed/:userId', async (req, res) => {
                 return FeedPost.find({ userId: followingId });
             })
         );
-        const allPosts = [...userPosts, ...followingPosts];
+        // const allPosts = [...userPosts, ...followingPosts];
+        const allPosts = userPosts.concat(...followingPosts);
         return res.status(200).json(allPosts);
     } catch (error) {
         return res.status(500).json(error);

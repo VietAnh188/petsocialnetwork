@@ -11,7 +11,9 @@ const Post = ({ current }) => {
     useEffect(() => {
         (async () => {
             try {
-                const res = await axios.get(`/users/?userId=${current.userId}`);
+                const res = await axios.get(
+                    `/users/?userId=${current?.userId}`
+                );
                 setOwner(res.data);
             } catch (error) {
                 console.log(error);
