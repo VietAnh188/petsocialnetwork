@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelector } from '../../redux/features/auth/authSlice';
 import {
@@ -30,8 +30,8 @@ const Newfeed = ({ home, other }) => {
                       username: other?.username,
                   })
               );
-        dispatchContext(stoppedAction());
-    }, [other?._id, user?._id, home, isLoading, dispatch]);
+        isLoading && dispatchContext(stoppedAction());
+    }, [other, user, isLoading, dispatch]);
 
     return (
         <div className="newfeed">

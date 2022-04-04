@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './headProfile.scss';
 import { DImages } from '../../default';
@@ -9,7 +9,7 @@ import {
     unfollowUser,
 } from '../../redux/features/auth/authSlice';
 
-const HeadProfile = ({ user }) => {
+const HeadProfile = ({ user, handleShowForm }) => {
     const dispatch = useDispatch();
     const { user: currentUser } = useSelector(authSelector);
 
@@ -79,7 +79,10 @@ const HeadProfile = ({ user }) => {
                         >
                             {followed ? 'Unfollow' : 'Follow'}
                         </button>
-                        <button className="editProfileButton btn">
+                        <button
+                            className="editProfileButton btn"
+                            onClick={() => handleShowForm()}
+                        >
                             Edit profile
                         </button>
                     </div>

@@ -72,6 +72,11 @@
                     font-weight: 700;
                     cursor: pointer;
                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    transition: transform 0.25s linear;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
                 }
             }
         }

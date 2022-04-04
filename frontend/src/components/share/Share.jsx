@@ -34,6 +34,7 @@ const Share = ({ user }) => {
         } else {
             alert('Missing title or image');
         }
+        title.current.value = '';
     };
 
     return (

@@ -46,6 +46,15 @@ const authSlice = createSlice({
                 },
             });
         },
+        editProfile: (state, action) => {
+            return (state = {
+                ...state,
+                user: {
+                    ...state.user,
+                    ...action.payload,
+                },
+            });
+        },
     },
     extraReducers: builder => {
         // loginCall
@@ -86,7 +95,7 @@ const authSlice = createSlice({
     },
 });
 
-export const { followUser, unfollowUser } = authSlice.actions;
+export const { followUser, unfollowUser, editProfile } = authSlice.actions;
 
 export const authSelector = state => state.auth;
 
