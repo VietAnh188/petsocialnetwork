@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import './profile.scss';
 import Navbar from '../../components/navbar/Navbar';
@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 import { Container } from '@mui/material';
 import HeadProfile from '../../components/headProfile/HeadProfile';
 import InforBox from '../../components/InforBox/InforBox';
+import { RenderContext } from '../../context/renderContext/renderContext';
+import { stoppedAction } from '../../context/renderContext/renderActions';
 
 const Profile = () => {
     const { username } = useParams();
@@ -22,7 +24,7 @@ const Profile = () => {
                 console.log(error);
             }
         })();
-    }, [username, user]);
+    }, [username]);
 
     return (
         <>

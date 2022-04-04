@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import './headProfile.scss';
 import { DImages } from '../../default';
@@ -18,8 +18,8 @@ const HeadProfile = ({ user }) => {
     );
 
     useEffect(() => {
-        setFollowed(currentUser.followings.includes(user._id));
-    }, [user._id, currentUser.followings]);
+        setFollowed(currentUser.followings.includes(user?._id));
+    }, [user?._id, currentUser.followings]);
 
     const handleFollow = async () => {
         try {

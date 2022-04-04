@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelector } from '../../redux/features/auth/authSlice';
 import {
@@ -19,21 +19,19 @@ const Newfeed = ({ home, other }) => {
     const { posts } = useSelector(feedPostSelector);
 
     useEffect(() => {
-        if (home) {
-            dispatch(
-                fetchFeedPostsCall({
-                    userId: user?._id,
-                })
-            );
-        } else {
-            dispatch(
-                fetchFeedPostsCall({
-                    username: other?.username,
-                })
-            );
-        }
+        home
+            ? dispatch(
+                  fetchFeedPostsCall({
+                      userId: user?._id,
+                  })
+              )
+            : dispatch(
+                  fetchFeedPostsCall({
+                      username: other?.username,
+                  })
+              );
         dispatchContext(stoppedAction());
-    }, [isLoading, other?.username, user?._id, dispatch]);
+    }, [other?._id, user?._id, home, isLoading, dispatch]);
 
     return (
         <div className="newfeed">
