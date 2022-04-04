@@ -33,10 +33,7 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/qna" element={<QNA />} />
                     <Route path="/profile/:username" element={<Profile />} />
-                    <Route
-                        path="/search/:username"
-                        element={<SearchResult />}
-                    />
+                    <Route path="/search/" element={<SearchResult />} />
                 </Routes>
             </div>
             {mount && <LogoutDialog />}

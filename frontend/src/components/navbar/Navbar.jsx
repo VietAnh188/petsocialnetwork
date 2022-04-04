@@ -26,7 +26,7 @@ const Navbar = () => {
 
     const handleSearch = event => {
         if (event.key === 'Enter') {
-            navigate(`/search/${searchUser.current.value}`);
+            navigate(`/search/?username=${searchUser.current.value}`);
         }
     };
 

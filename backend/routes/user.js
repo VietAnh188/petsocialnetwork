@@ -3,12 +3,12 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 // get all users has the same name
-router.get('/search/:username', async (req, res) => {
+router.get('/search/', async (req, res) => {
+    const username = req.query.username;
     try {
         const users = await User.find({
-            username: new RegExp(req.params.username, 'i'),
+            username: new RegExp(username, 'i'),
         });
-        console.log(users);
         return res.status(200).json(users);
     } catch (error) {
         return res.status(500).json(error);
