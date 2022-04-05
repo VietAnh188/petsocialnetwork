@@ -8,7 +8,6 @@ import {
 } from '@mui/icons-material';
 
 const InforBox = ({ user }) => {
-    console.log('inforBox');
     return (
         <div className="inforBox">
             <div className="inforBoxWrapper">

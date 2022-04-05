@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import './navbar.scss';
 import { AppBar, Button, Container, Toolbar } from '@mui/material';
 import {
@@ -11,14 +11,15 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { DImages } from '../../default';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { authSelector } from '../../redux/features/auth/authSlice';
-import { logoutClicked } from '../../redux/features/logout/logoutSlice';
+import { LogoutContext } from '../../context/logoutContext/logoutContext';
+import { logoutLoadedAction } from '../../context/logoutContext/logoutActions';
 
 const Navbar = () => {
-    const { user } = useSelector(authSelector);
+    const { dispatch: dispatchContext } = useContext(LogoutContext);
 
-    const disapatch = useDispatch();
+    const { user } = useSelector(authSelector);
 
     const navigate = useNavigate();
 
@@ -31,7 +32,7 @@ const Navbar = () => {
     };
 
     const handleLogout = () => {
-        disapatch(logoutClicked());
+        dispatchContext(logoutLoadedAction());
     };
 
     return (

@@ -12,7 +12,6 @@ import { RenderContext } from '../../context/renderContext/renderContext';
 import { loadedAction } from '../../context/renderContext/renderActions';
 
 const HeadProfile = ({ user, handleShowForm }) => {
-    console.log('head');
     const dispatch = useDispatch();
 
     const { dispatch: dispatchContext } = useContext(RenderContext);

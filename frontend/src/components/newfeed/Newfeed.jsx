@@ -9,7 +9,6 @@ import Share from '../share/Share';
 import './newfeed.scss';
 
 const Newfeed = ({ home, other }) => {
-    console.log('new feed');
     const { isLoading, dispatch: dispatchContext } = useContext(RenderContext);
 
     const { user } = useSelector(authSelector);

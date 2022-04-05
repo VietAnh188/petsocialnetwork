@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
@@ -9,11 +9,12 @@ import { authSelector } from './redux/features/auth/authSlice';
 import Profile from './pages/profile/Profile';
 import SearchResult from './pages/searchResult/SearchResult';
 import LogoutDialog from './components/logoutDialog/LogoutDialog';
-import { logoutSelector } from './redux/features/logout/logoutSlice';
+import { LogoutContext } from './context/logoutContext/logoutContext';
 
 function App() {
     const { user } = useSelector(authSelector);
-    const { mount } = useSelector(logoutSelector);
+    const { isMount } = useContext(LogoutContext);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -36,7 +37,7 @@ function App() {
                     <Route path="/search/" element={<SearchResult />} />
                 </Routes>
             </div>
-            {mount && <LogoutDialog />}
+            {isMount && <LogoutDialog />}
         </>
     );
 }

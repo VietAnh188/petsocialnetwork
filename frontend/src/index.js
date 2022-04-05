@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/app/store';
 import RenderContextProvider from './context/renderContext/renderContext';
+import LogoutContextProvider from './context/logoutContext/logoutContext';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,9 @@ root.render(
         <Provider store={store}>
             <RenderContextProvider>
                 <BrowserRouter>
-                    <App />
+                    <LogoutContextProvider>
+                        <App />
+                    </LogoutContextProvider>
                 </BrowserRouter>
             </RenderContextProvider>
         </Provider>

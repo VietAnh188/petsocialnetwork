@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './logoutDialog.scss';
-import { logoutClosed } from '../../redux/features/logout/logoutSlice';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { LogoutContext } from '../../context/logoutContext/logoutContext';
+import { logoutStoppedAction } from '../../context/logoutContext/logoutActions';
 
 const LogoutDialog = () => {
-    const dispatch = useDispatch();
+    const { dispatch: dispatchContext } = useContext(LogoutContext);
 
     const navigate = useNavigate();
 
     const handleSubmitLogout = () => {
         localStorage.clear();
         navigate('/login');
-        dispatch(logoutClosed());
+        dispatchContext(logoutStoppedAction());
     };
 
     const handleStopLogout = () => {
-        dispatch(logoutClosed());
+        dispatchContext(logoutStoppedAction());
     };
 
     return (
