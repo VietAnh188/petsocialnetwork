@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, memo } from 'react';
 import axios from 'axios';
 import './headProfile.scss';
 import { DImages } from '../../default';
@@ -99,4 +99,4 @@ const HeadProfile = ({ user, handleShowForm }) => {
     );
 };
 
-export default HeadProfile;
+export default memo(HeadProfile);

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, memo } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { authSelector } from '../../redux/features/auth/authSlice';
@@ -46,4 +46,4 @@ const Newfeed = ({ home, other }) => {
     );
 };
 
-export default Newfeed;
+export default memo(Newfeed);

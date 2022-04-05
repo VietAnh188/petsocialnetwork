@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './inforBox.scss';
 import {
     Email,
@@ -46,4 +46,4 @@ const InforBox = ({ user }) => {
     );
 };
 
-export default InforBox;
+export default memo(InforBox);

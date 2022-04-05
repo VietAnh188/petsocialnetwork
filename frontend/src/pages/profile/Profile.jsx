@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './profile.scss';
 import Navbar from '../../components/navbar/Navbar';
 import Newfeed from '../../components/newfeed/Newfeed';
@@ -68,4 +68,4 @@ const Profile = () => {
     );
 };
 
-export default memo(Profile);
+export default Profile;
