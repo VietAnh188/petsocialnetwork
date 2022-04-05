@@ -50,13 +50,9 @@ const EditDialog = ({ handleCloseForm }) => {
             ...(coverPicture && { coverPicture }),
         };
         await axios.put(`/users/${user._id}`, request);
-        if (username.current.value) {
-            navigate(`/`);
-        }
+        navigate(`/`);
         dispatch(editProfile(request));
     };
-
-    console.log(user);
 
     const handleClearField = () => {
         username.current.value = '';

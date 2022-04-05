@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useTransition } from 'react';
+import React, { useEffect, useState } from 'react';
 import './profile.scss';
 import Navbar from '../../components/navbar/Navbar';
 import Newfeed from '../../components/newfeed/Newfeed';
@@ -6,41 +6,30 @@ import { useParams } from 'react-router-dom';
 import { Container } from '@mui/material';
 import HeadProfile from '../../components/headProfile/HeadProfile';
 import InforBox from '../../components/InforBox/InforBox';
-import {
-    otherUserSelector,
-    getOtherUser,
-} from '../../redux/features/otherUser/otherUserSlice';
 import { authSelector } from '../../redux/features/auth/authSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import EditDialog from '../../components/editDialog/EditDialog';
+import axios from 'axios';
 
 const Profile = () => {
-    const dispatch = useDispatch();
-
-    const [isPending, startTransition] = useTransition();
-
     const [editShow, setEditShow] = useState(false);
-    const [checkData, setCheckData] = useState(false);
+    const [user, setUser] = useState({});
 
-    const { otherUser: user } = useSelector(otherUserSelector);
     const { user: currentUser } = useSelector(authSelector);
 
     const { username } = useParams();
 
     useEffect(() => {
-        if (checkData) {
-            dispatch(getOtherUser({ username }));
-            startTransition(() => {
-                setCheckData(false);
-            });
+        console.log('fetch');
+        if (username !== currentUser.username) {
+            (async () => {
+                const res = await axios.get(`/users/?username=${username}`);
+                res && setUser(res.data);
+            })();
+        } else {
+            setUser(currentUser);
         }
-    }, [checkData]);
-
-    useEffect(() => {
-        startTransition(() => {
-            setCheckData(true);
-        });
-    }, [username, currentUser]);
+    }, [username]);
 
     const handleShowEditForm = () => {
         setEditShow(!editShow);
