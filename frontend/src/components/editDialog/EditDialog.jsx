@@ -1,4 +1,4 @@
-import React, { useRef, useState, useTransition } from 'react';
+import React, { useRef, useState, useTransition, useContext } from 'react';
 import axios from 'axios';
 import './editDialog.scss';
 import FileBase64 from 'react-file-base64';
@@ -6,10 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authSelector, editProfile } from '../../redux/features/auth/authSlice';
 import { Close } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { RenderContext } from '../../context/renderContext/renderContext';
+import { loadedAction } from '../../context/renderContext/renderActions';
 
 const EditDialog = ({ handleCloseForm }) => {
     const dispatch = useDispatch();
     const { user } = useSelector(authSelector);
+
+    const { dispatch: dispatchContext } = useContext(RenderContext);
 
     const navigate = useNavigate();
 
@@ -50,7 +54,7 @@ const EditDialog = ({ handleCloseForm }) => {
             ...(coverPicture && { coverPicture }),
         };
         await axios.put(`/users/${user._id}`, request);
-        navigate(`/`);
+        dispatchContext(loadedAction());
         dispatch(editProfile(request));
     };
 

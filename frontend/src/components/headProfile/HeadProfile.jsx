@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import './headProfile.scss';
 import { DImages } from '../../default';
@@ -8,9 +8,15 @@ import {
     followUser,
     unfollowUser,
 } from '../../redux/features/auth/authSlice';
+import { RenderContext } from '../../context/renderContext/renderContext';
+import { loadedAction } from '../../context/renderContext/renderActions';
 
 const HeadProfile = ({ user, handleShowForm }) => {
+    console.log('head');
     const dispatch = useDispatch();
+
+    const { dispatch: dispatchContext } = useContext(RenderContext);
+
     const { user: currentUser } = useSelector(authSelector);
 
     const [followed, setFollowed] = useState(
@@ -34,6 +40,7 @@ const HeadProfile = ({ user, handleShowForm }) => {
                 });
                 dispatch(followUser(user?._id));
             }
+            dispatchContext(loadedAction());
             setFollowed(!followed);
         } catch (error) {
             console.log(error);
