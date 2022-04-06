@@ -2,7 +2,7 @@
 
 ## WEBSITE PET SOCIAL NETWORK
 
-### MENTOR: THANH, NGUYEN TRONG MSC
+### MENTOR: THANH, NGUYEN TRONG
 
 ### BUILT WITH
 
@@ -26,6 +26,10 @@ This section will list the main frameworks/libraries used in the project. Here a
 -   [morgan](https://www.npmjs.com/package/morgan)
 -   [cors](https://www.npmjs.com/package/cors)
 -   [multer](https://www.npmjs.com/package/multer)
+
+### SYSTEM REQUIREMENTS:
+
+Installed Nodejs, npm or yarn
 
 ### GETTING STARTED
 
@@ -99,3 +103,29 @@ To get a local copy up and running follow these simple example steps.
 -   `/shop`: Shop page
 -   `/profile/:username`: Profile page
 -   `/search/:username`: page will show all user has the same username
+
+### CURRENT AVAILABLE FEATURES
+
+|  #  | Feature                     |
+| :-: | :-------------------------- |
+|  1  | Login                       |
+|  2  | Register                    |
+|  3  | Logout                      |
+|  4  | View new feed               |
+|  5  | Create a new post           |
+|  6  | Search users                |
+|  7  | Follow / UnFollow a user    |
+|  8  | View current user's profile |
+|  9  | View another user's profile |
+| 10  | Edit profile                |
+
+### FEATURES WILL BE ADDED LATER:
+
+|  #  | Feature                |
+| :-: | :--------------------- |
+|  1  | View QNA feed          |
+|  2  | Create a new QNA post  |
+|  3  | View Help feed         |
+|  4  | Create a new Help post |
+|  5  | Edit / Delete post     |
+|  6  | Shopping               |
