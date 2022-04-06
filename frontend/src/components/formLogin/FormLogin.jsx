@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useId } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelector, loginCall } from '../../redux/features/auth/authSlice';
 import { CircularProgress } from '@mui/material';
@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 import './formLogin.scss';
 
 const FormLogin = () => {
+    const id = useId();
+
     const dispatch = useDispatch();
+
     const { isFetching } = useSelector(authSelector);
 
     const email = useRef();
@@ -24,22 +27,22 @@ const FormLogin = () => {
     return (
         <>
             <form onSubmit={handleLogin}>
-                <label className="labelLogin" htmlFor="emailInputLogin">
+                <label className="labelLogin" htmlFor={id + 'email'}>
                     Email
                 </label>
                 <input
-                    id="emailInputLogin"
+                    id={id + 'email'}
                     className="emailInput inputLogin"
                     type="text"
                     placeholder="Enter your email"
                     required
                     ref={email}
                 />
-                <label className="labelLogin" htmlFor="passwordInputLogin">
+                <label className="labelLogin" htmlFor={id + 'password'}>
                     Password
                 </label>
                 <input
-                    id="passwordInputLogin"
+                    id={id + 'password'}
                     className="passwordInput inputLogin"
                     type="password"
                     placeholder="Enter your password"

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     authSelector,
@@ -10,8 +10,12 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const FormRegister = () => {
+    const id = useId();
+
     const dispatch = useDispatch();
+
     const { isFetching } = useSelector(authSelector);
+
     const navigate = useNavigate();
 
     const [match, setMatch] = useState(true);
@@ -44,49 +48,40 @@ const FormRegister = () => {
     return (
         <>
             <form onSubmit={handleRegister}>
-                <label
-                    htmlFor="usernameInputRegister"
-                    className="labelRegister"
-                >
+                <label htmlFor={id + 'username'} className="labelRegister">
                     Username
                 </label>
                 <input
-                    id="usernameInputRegister"
+                    id={id + 'username'}
                     className="usernameInput inputRegister"
                     type="text"
                     placeholder="Enter your usename"
                     required
                     ref={username}
                 />
-                <label className="labelRegister" htmlFor="emailInputRegister">
+                <label className="labelRegister" htmlFor={id + 'email'}>
                     Email
                 </label>
                 <input
-                    id="emailInputRegister"
+                    id={id + 'email'}
                     className="emailInput inputRegister"
                     type="email"
                     placeholder="Enter your email"
                     required
                     ref={email}
                 />
-                <label
-                    className="labelRegister"
-                    htmlFor="passwordInputRegister"
-                >
+                <label className="labelRegister" htmlFor={id + 'password'}>
                     Password
                 </label>
                 <input
-                    id="passwordInputRegister"
+                    id={id + 'password'}
                     className="passwordInput inputRegister"
                     type="password"
                     placeholder="Enter your password"
                     required
                     ref={password}
                 />
-                <label
-                    className="labelRegister"
-                    htmlFor="passwordAgainInputRegister"
-                >
+                <label className="labelRegister" htmlFor={id + 'passwordAgain'}>
                     Password again{' '}
                     {!match && (
                         <span style={{ color: 'red', fontSize: '15px' }}>
@@ -95,7 +90,7 @@ const FormRegister = () => {
                     )}
                 </label>
                 <input
-                    id="passwordAgainInputRegister"
+                    id={id + 'passwordAgain'}
                     type="password"
                     className="passwordInpuAgain inputRegister"
                     placeholder="Enter your password, again"
