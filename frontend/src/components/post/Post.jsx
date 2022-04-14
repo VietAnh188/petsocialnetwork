@@ -4,9 +4,11 @@ import './post.scss';
 import { MoreHoriz } from '@mui/icons-material';
 import { DImages } from '../../default';
 import { Link } from 'react-router-dom';
+import MoreMenu from '../moreMenu/MoreMenu';
 
 const Post = ({ current }) => {
     const [owner, setOwner] = useState({});
+    const [isShowMenu, setIsShowMenu] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -48,7 +50,9 @@ const Post = ({ current }) => {
                             sx={{ color: 'var(--primary-text)' }}
                             fontSize="large"
                             className="moreIcon"
+                            onClick={() => setIsShowMenu(!isShowMenu)}
                         />
+                        {isShowMenu && <MoreMenu postId={current._id} />}
                     </div>
                 </div>
                 <div className="postBody">

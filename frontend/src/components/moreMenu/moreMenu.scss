@@ -1,0 +1,58 @@
+@import url('../../root.scss');
+
+.moreMenu {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+    animation: mountMenu 0.25s linear forwards;
+
+    &Wrapper {
+        padding: 5px 10px;
+
+        & ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            & li {
+                display: flex;
+                align-items: center;
+                padding: 5px 0;
+
+                &:hover {
+                    cursor: pointer;
+
+                    & .moreMenuItemIcon,
+                    & span {
+                        color: var(--primary-purple);
+                    }
+                }
+
+                & .moreMenuItemIcon {
+                    color: var(--primary-text);
+                }
+
+                & span {
+                    font-weight: 700;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes mountMenu {
+    0% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        top: 100%;
+    }
+}
