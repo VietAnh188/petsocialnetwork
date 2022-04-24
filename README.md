@@ -36,6 +36,18 @@ Installed Nodejs, npm or yarn
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
+Make sure node_modules folder is installed in both backend and frontend folders.
+
+    ```
+    yarn install
+    ```
+
+    or
+
+    ```
+    npm install
+    ```
+
 -   `Step 1`: Clone the project from repository:
 
     ```sh
