@@ -38,13 +38,13 @@ To get a local copy up and running follow these simple example steps.
 
 Make sure node_modules folder is installed in both backend and frontend folders.
 
-    ```
+    ```sh
     yarn install
     ```
 
     or
 
-    ```
+    ```sh
     npm install
     ```
 
