@@ -1,5 +1,9 @@
 {
     "name": "backend",
+    "author": {
+        "name": "Viet Anh, Le",
+        "email": "anhkun123456@gmail.com"
+    },
     "version": "1.0.0",
     "description": "",
     "main": "index.js",

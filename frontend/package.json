@@ -1,5 +1,9 @@
 {
     "name": "frontend",
+    "author": {
+        "name": "Viet Anh, Le",
+        "email": "anhkun123456@gmail.com"
+    },
     "version": "0.1.0",
     "private": true,
     "dependencies": {
