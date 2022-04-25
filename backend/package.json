@@ -10,7 +10,6 @@
     "scripts": {
         "start": "nodemon index.js"
     },
-    "author": "",
     "license": "ISC",
     "dependencies": {
         "bcrypt": "^5.0.1",
