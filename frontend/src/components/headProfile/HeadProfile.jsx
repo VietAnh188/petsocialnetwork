@@ -82,6 +82,7 @@ const HeadProfile = ({ user, handleShowForm }) => {
                         <button
                             className="followButton btn"
                             onClick={handleFollow}
+                            disabled={currentUser._id === user?._id}
                         >
                             {followed ? 'Unfollow' : 'Follow'}
                         </button>

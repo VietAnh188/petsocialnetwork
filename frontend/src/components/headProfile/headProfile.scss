@@ -77,6 +77,12 @@
                     &:hover {
                         transform: scale(1.2);
                     }
+
+                    &:disabled {
+                        background-color: rgba(153, 153, 153, 0.359);
+                        cursor: not-allowed;
+                        transform: none;
+                    }
                 }
             }
         }
